@@ -2,6 +2,7 @@
 title: vue 基础知识2
 date: 2019-05-28 14:09:04
 author: one-lemn
+summary: Vue 的基本知识了解
 tags:
 	- vue
 	- 基础
@@ -65,7 +66,5 @@ tags:
 
 同理还有鼠标按键修饰符，系统修饰键，异曲同工。
 
----
 
-## 组件
 
