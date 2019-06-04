@@ -80,8 +80,10 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-matery
-
-# Deployment
+# hexo-theme-diaspora-master
+# hexo-theme-matery  紫色狐狸
+# hexo-theme-material-x-master  master-x
+# hexo-theme-icarus-master  x
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
