@@ -2,12 +2,11 @@
 title: Vue 基础知识1
 date: 2019-05-27 14:40:57
 author: one-lemon
-summary：Vue
-		vue 是什么？构建用户界面的渐进式框架 
+summary: vue 是什么？构建用户界面的渐进式框架 
 tags:	
-	- vue
+	- Vue
 	- 基础	
-	- JavaScript
+	- JS
 ---
 
 # Vue

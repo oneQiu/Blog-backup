@@ -7,8 +7,8 @@ top: false
 cover: false
 summary: node 基础模块的简单示例，以及express模块使用
 tags:
-  - node
-  - js
+  - Node
+  - JS
 ---
 
 ## node 运行 js文件（PS：安装好了node）

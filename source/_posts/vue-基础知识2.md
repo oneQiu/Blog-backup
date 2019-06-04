@@ -4,9 +4,9 @@ date: 2019-05-28 14:09:04
 author: one-lemn
 summary: Vue 的基本知识了解
 tags:
-	- vue
+	- Vue
 	- 基础
-	- JavaScript
+	- JS
 ---
 
 # Vue
