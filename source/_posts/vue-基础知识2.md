@@ -1,6 +1,6 @@
 ---
 title: vue 基础知识2
-date: 2019-05-28 14:09:04
+date: 2018-06-28 14:09:04
 author: one-lemn
 summary: Vue 的基本知识了解
 tags:
