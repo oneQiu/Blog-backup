@@ -37,6 +37,7 @@ tags:
 5. class -> className
 6. label 标签不能使用for ，换成 htmlFor
 7. 注释：使用 JS 的注释，并且使用 { } ，例如 `{ /* <P> </P>*/ } `
+8. style 需要写在对象当中
 ## JSX 的差值表达式
 如何在 JSX 中使用变量？
 
@@ -112,3 +113,78 @@ React 元素 | 虚拟 DOM 元素 | JSX 代码中任意标签 | 通过 React.crea
 - 组件变化方式
   1. 组件接收到的 props 发生改变
   2. 组件自身的 state 有了变化
+
+defaultValue / defaultChecked默认值  ，单独使用 Value 会报错需要配合onChange使用
+## 生命周期
+挂载
+
+- constructor 构造函数 组件实例化的时候触发，不能在里面 setState。
+  1. 调用父类的构造函数 
+  2. super(props) 初始化数据 
+  3. 绑定this指向
+- componentWillMount()  × 即将过期
+- static getDerivedStateFromProps()  不常用，能够根据 props 的数据来设置新的 state 数据。
+  1. 初始化 render 之前调用一次
+  2. 后续数据有变化，重新 render 之前又会调用
+  3. 不要使用 `this.setState` -> 哪些不能用？
+  4. 需要有 return { } | null ，如果是对象，会将 state 合并
+- render () 渲染  默认进来一次，后续如果有更新会再次触发 使用  setState 需要谨慎。
+- componentDidMount() 组件挂载完成。 
+
+  1. 获取异步数据
+  2. 操作 dom
+
+
+更新
+
+- static getDerivedStateFromProps()
+- shouldComponentUpdate(nextProps, nextState) 性能优化，这个组件是否需要进行更新渲染？推荐使用 PureComponent 组件继承，两者不能同时存在。需要返回值，返回 true -> 更新生命周期继续执行。false -> 生命周期不执行。
+- render
+- getSnapshotBeforeUpdate(prevProps, prevState)   真实 DOM 渲染完成的前一刻
+- componentDidUpdate(*prevProps*, *prevState*, *snapshot*)  更新完成，对 DOM 进行操作，发送网络请求，但是需要正确进行 if 判断。
+
+卸载
+
+- componentWillUnmount  销毁
+
+## 组件之间的通信
+
+### 父 -> 子
+
+- 通过props
+
+### 子 -> 父
+
+- 传递方法给子组件，然后子组件调用传递参数
+
+### 兄弟组件
+
+- 状态提升
+
+- 第三方中央事件管理器(pubsub)
+
+- context
+
+  1. `let MyContext = React.createContext()` 创建出一个 context
+  2. `MyContext.Prvider` 供应商组件
+  3. `MyContext.Consumer` 消费者组件  标签中间需要使用函数返回 JSX，这个函数接受一个参数，这个参数就是供应商中的值。
+
+  ---
+
+  1. 使用上面的步骤
+  2. 不使用消费者组件，弄成 `x.contextType = MyContext`。使用 `this.context` 获取供应商的数据。
+
+- React 状态管理器
+
+  - 官方 flux
+  
+  - 第三方  Redux
+    1. 任何时刻 state 都没有被改变。
+    
+    2. 生成一个新的 state 去替换旧的 state，Reducers 不能修改，只能通过 return 纯函数。
+    
+       Tips：纯函数--任何时候都不会修改参数，有相同的入参，一定会产生相同的出参。
+  - 第三方  
+
+Tips：children 类似于 Vue 的插槽
+
